@@ -72,20 +72,9 @@ Enjoy!
 ```python
 def hailstorm3(c, max_iter):
     n = c
-    oldn = n
     depths = np.zeros(n.shape) + 1
     for v in range(max_iter):
-        '''
-        if abs(n) == 1:
-            return [129, 129, 0]
-        if abs(n) > 1e10:
-            return [200, 200, 200]
-        '''
-        oldn = n
-        n = n/2 + (5*n/2 + 1)*np.sin(np.pi*n/2)**2
-        depths[np.logical_and(np.isnan(n), depths == 1)] = v + 2
-        #n = n/2 - (5*n/2+1)*(np.e**(0.5j*np.pi*n) - np.e**(-0.5j*np.pi*n))**2/4
-    #r, i = n.as_real_imag()
-    #n = np.nan_to_num(n)
+        n = n/2 + (5*n/2 + 1)*np.sin(np.pi*n/2)**2 #function itself
+        depths[np.logical_and(np.isnan(n), depths == 1)] = v + 2 #for coloring
     return [255 - 255/(np.exp(n.real/50) + 1), (depths % 2) * 54, np.log(depths)*255/np.log(max_iter+2)]
 ```
