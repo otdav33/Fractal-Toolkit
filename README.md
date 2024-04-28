@@ -3,7 +3,7 @@ Render, select coordinates, export to video and more. This library allows for th
 
 There are python docstrings for pretty much everything, so if you want help or documentation on a particular function, python's help() command will work.
 
-Here is an example fractal that I generated. You can also make videos that can be exported as gifs.
+Here is an example fractal that I generated. You can also make videos that can be converted to gifs.
 ![example fractal](examplegenerated.png)
 The function used for this one was the hailstorm3 function listed as one of the examples somewhere below in this document.
 
