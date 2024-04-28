@@ -59,7 +59,6 @@ It should look like this when picking coordinates, and output something like thi
 pixelx=968, pixely=400
 0.3683333333333333 + 0.30740740740740746j
 ```
-=======
 
 Once everything is to your liking, you can convert the image sequence to video with either blender or assembleanimfromimages.py.
 ```bash
@@ -90,4 +89,3 @@ def hailstorm3(c, max_iter):
     #n = np.nan_to_num(n)
     return [255 - 255/(np.exp(n.real/50) + 1), (depths % 2) * 54, np.log(depths)*255/np.log(max_iter+2)]
 ```
-=======
