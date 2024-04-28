@@ -1,5 +1,5 @@
 # Fractal Toolkit
-Render, select coordinates, export to video and more.
+Render, select coordinates, export to video and more. This library allows for the use of numpy (optional) to greatly speed up the computation of fractals by doing an entire screenful at a time instead of computing pixel-by-pixel.
 
 There are python docstrings for pretty much everything, so if you want help or documentation on a particular function, python's help() command will work.
 
@@ -18,14 +18,15 @@ import fractalrenderer
 def mandelbrot(c, max_iter):
     """sample fractal function that can be used to render the mandelbrot set"""
     z = c
-    oldz = z
-    depths = np.zeros_like(z, dtype=np.float64) + max_iter
-    upper_threshold = 9e23
+    oldz = z #used for coloring
+    depths = np.zeros_like(z, dtype=np.float64) + max_iter #numpy array of the number of iterations needed for convergence/divergence -- used for coloring
+    upper_threshold = 9e23 #threshold for what is considered divergence for the mandelbrot set
     for n in range(max_iter):
-        oldz = z
-        depths[(depths == max_iter) & (abs(z) > upper_threshold)] = n
-        z = z*z + c
+        oldz = z #used for coloring
+        depths[(depths == max_iter) & (abs(z) > upper_threshold)] = n #for coloring
+        z = z*z + c #the function itself for generating the mandelbrot set
 
+    #Please mix and match from any of the following coloring methods:
     color1 = abs(255 - 255/(np.exp(z.real/50) + 1)) #inside/outside
     color2 = abs(255 - 255/(np.exp(z.imag/50) + 1)) #inside/outside
     color3 = abs((depths % 2) * 54) #solid bands around pattern
