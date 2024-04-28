@@ -44,7 +44,7 @@ Choose what parts of the fractal you wish to render. I will go with an animation
 ```python
 xmins, xmaxs, ymins, ymaxs = fractalrenderer.create_zoom_viewports(0.36, 0.1, 0.36, 0.1, 2, 0.02, 1.6, 0.016, 10)
 ```
-Choose your final image/video size (in this case 1920x1080) and number of maximum iterations you would like to pass to your fractal functions (more iterations will give a sharper result; 255 is a reasonable number here). This line will render the fractals as an image sequence using 10 threads to a the directory "anims/mandelbrot/"
+Choose your final image/video size (in this case 1920x1080) and number of maximum iterations you would like to pass to your fractal functions (more iterations will give a sharper result; 255 is a reasonable number here). This line will render the fractals as an image sequence using 10 threads to the directory "anims/mandelbrot/"
 ```python
 fractalrenderer.process_steps_multithreaded(xmins, xmaxs, ymins, ymaxs, 1920, 1080, 255, 10, mandelbrot, 10, True, "anims")
 ```
@@ -54,8 +54,9 @@ If you want to adjust the viewport position, you can use the coordpicker.py tool
 ```bash
 python3 coordpicker.py anims/mandelbrot/desired_frame.png
 ```
-It should look like this when picking coordinates, and output something like this when clicked
+It should look like this when picking coordinates
 ![screenshot](examplescreenshot.jpg)
+and should output something like this when clicked
 ```
 pixelx=968, pixely=400
 0.3683333333333333 + 0.30740740740740746j
